@@ -32,3 +32,15 @@ contains a fast input/output tunnel to standard IO(`stdin/stdout`).
 NOTE: `putc([val],1)` will flush the buffer after outputing `[val]`. if `[val]==-1` it won't output any characters.
 
 **`NOTE [VERY IMPORTANT]` The fastIO functional must be used with an flushing output call at the end of the program if you have done any output.**
+
+####namespace `basicDCMath`
+Contains some useful functionals on `unsigned [int]`s.
+**ull functionals**
+
+`ladd lmul lpow` do avoids overflow modding some ull;
+
+`lfpm`does not.
+
+**ul functionals**
+
+`lmul lfpm` do avoids overflow.
