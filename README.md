@@ -1,0 +1,2 @@
+# AlgorithmTemplate
+Algorithm templates
