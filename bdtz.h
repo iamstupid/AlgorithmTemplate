@@ -17,6 +17,7 @@ typedef unsigned long long ull;
 typedef int il;
 typedef unsigned int ul;
 namespace fastIO{
+	#define qbs 6000000
 	inline char getc(){ static char buf[qbs];static int q=qbs; if(qbs==q) fread(buf,qbs,1,stdin),q=0; return buf[q++]; }
 	inline void rdu(ul& a){ a=0; char p=getc(); while(p>'9' || p<'0') p=getc(); while(p<='9'&&p>='0') a=a*10+p-'0',p=getc(); }
 	inline void rdu(ull& a){ a=0; char p=getc(); while(p>'9' || p<'0') p=getc(); while(p<='9'&&p>='0') a=a*10+p-'0',p=getc(); }
