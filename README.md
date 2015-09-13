@@ -3,8 +3,9 @@ Algorithm templates
 
 > **`WARNING`** AlgorithmTemplate does a lot with macros; their relationship may also be complex. DON'T TRY TO EDIT THEM UNLESS YOU HAVE FULLY TESTED THEY ARE EQUIVALENT
 
+Dependences are mostly auto-solved.
 ##bdtz.h
-You should always include this file.
+You would always include this file.
 
 `bdtz.h` defines some basic types.
 
