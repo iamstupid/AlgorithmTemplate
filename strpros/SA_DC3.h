@@ -1,4 +1,6 @@
-#ifdef ifnext
+#ifdef LibraryLoaded_bdtz
+#include "../bdtz.h"
+#endif
 namespace SuffixArray{
 	template<ul maxsize=100011> struct DC3{
 	private:
@@ -67,4 +69,3 @@ namespace SuffixArray{
 		}
 	};
 }
-#endif
