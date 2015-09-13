@@ -44,3 +44,7 @@ Contains some useful functionals on `unsigned [int]`s.
 **ul functionals**
 
 `lmul lfpm` do avoids overflow.
+
+**linv**
+
+Get inverse mop `p` less or equal than `n` in linear time to `n`.
