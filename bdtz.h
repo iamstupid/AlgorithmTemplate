@@ -12,6 +12,7 @@
 #define fdx(i,f,t)  for(int i=f;i>t; --i)
 #define fdxe(i,f,t) for(int i=f;i>=t;--i)
 #define pi 3.14159265358979323846264
+#define ifnext(a,b) (((a)-1)&b)
 typedef long long ll;
 typedef unsigned long long ull;
 typedef int il;
