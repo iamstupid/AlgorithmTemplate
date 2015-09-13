@@ -1,6 +1,10 @@
 #ifdef LibraryLoaded_bdtz
 #include "../bdtz.h"
 #endif
+#define LibraryLoaded_DC3
+#ifndef Any_str_SA
+#define Any_str_SA DC3
+#endif
 namespace SuffixArray{
 	template<ul maxsize=100011> struct DC3{
 	private:
