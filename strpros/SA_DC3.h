@@ -65,6 +65,6 @@ namespace SuffixArray{
 		 */
 			dc3(v,sa,n,m);
 		}
-	}
+	};
 }
 #endif
