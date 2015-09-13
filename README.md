@@ -1,5 +1,8 @@
 # AlgorithmTemplate
 Algorithm templates
+
+> **`WARNING`** AlgorithmTemplate does a lot with macros; their relationship may also be complex. DON'T TRY TO EDIT THEM UNLESS YOU HAVE FULLY TESTED THEY ARE EQUIVALENT
+
 ##bdtz.h
 You should always include this file.
 
