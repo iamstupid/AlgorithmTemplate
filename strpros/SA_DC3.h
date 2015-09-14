@@ -1,4 +1,4 @@
-#ifdef LibraryLoaded_bdtz
+#ifndef LibraryLoaded_bdtz
 #include "../bdtz.h"
 #endif
 #define LibraryLoaded_DC3
