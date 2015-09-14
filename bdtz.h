@@ -40,4 +40,3 @@ namespace basicDCMath{
 	inline ul lfpm(ul a,ul b,ul p){ ul k=1;for(;b;b>>=1,a=lmul(a,a,p)) if(b&1) k=lmul(k,a,p); return k;}
 	inline void linv(ul* q,ul p,ul m){ q[1]=1; foxe(i,2,p) q[i]=((ull)(m-m/i)*q[m%i])%m; }
 }
-
