@@ -1,24 +1,24 @@
 #ifndef LibraryLoaded_bdtz
 #include "../bdtz.h"
 #endif
+#ifndef LibraryLoaded_DC3
 #define LibraryLoaded_DC3
 #ifndef Any_str_SA
 #define Any_str_SA DC3
 #endif
 namespace SuffixArray{
-	template<ul maxsize=100011> struct DC3{
+	template<ul maxsize=100011,ul maxcharsetsize=1024> struct DC3{
 	private:
 		inline ul max(ul a,ul b){
-			return a>b?a:b;
+			return (int)a>(int)b?a:b;
 		}
 		#define N maxsize
-		char s[N*3];
-		ul v[N*3],qa[N*3],qb[N*3],sav[N*3],sa[N*3];
+		ul qa[N*3],qb[N*3],sav[N*3];
 		inline bool cmp1(ul* v,ul a,ul b){ return v[a]==v[b] && v[a+1]==v[b+1] && v[a+2]==v[b+2]; }
 		inline bool cmp21(ul* v,ul a,ul b){ return v[a]<v[b] || ( v[a]==v[b] && sav[a+1]<sav[b+1] ); }
 		inline bool cmp2(ul d,ul* v,ul a,ul b){ if(d==1) return cmp21(v,a,b); else return  v[a]<v[b] || ( v[a]==v[b] && cmp21(v,a+1,b+1) );}
 		inline void radixsort(ul* v,ul* q,ul* sa,ul n,ul m){
-			static int c[N];
+			static int c[maxcharsetsize+1];
 			fon(i,m) c[i]=0;
 			fon(i,n) ++c[v[q[i]]];
 			fox(i,1,m) c[i]+=c[i-1];
@@ -29,7 +29,7 @@ namespace SuffixArray{
 		#define rf(x) ((x)<na?3*(x)+1:3*((x)-na)+2)
 		void dc3(ul* v,ul* sa,ul n,ul m){
 			ul i,j,k,*nv=v+n+3,*nsa=sa+n+3,na=(n+2)/3,nbc=0,lab;
-			ul qx,qxa;
+			register ul qx,qxa;
 			v[n]=v[n+1]=v[n+2]=0;
 			fon(i,n) if(i%3) qa[nbc++]=i; if(n%3==1) qa[nbc++]=n;
 			radixsort(v+2,qa,qb,nbc,m);
@@ -49,8 +49,7 @@ namespace SuffixArray{
 			while(i<na)   sa[lab++]=qa[i++];
 			while(j<nbc)  sa[lab++]=qb[j++];
 		}
-		ul rk[N],h[N];
-		inline void getRankHeight(ul n){
+		inline void getRankHeight(ul n,ul* v,ul* sa,ul* rk,ul* h){
 			register ul j;
 			fon(i,n) rk[sa[i]]=i;
 			fon(i,n){
@@ -61,15 +60,31 @@ namespace SuffixArray{
 				}
 			}
 		}
+		inline void clear(){
+			fon(i,N) sav[i]=0;
+		}
 	public:
 		inline void operator()(ul* v,ul* sa,ul n,ul m){
 		/**
-		 * @param v    original string (can be s string of numbers)
-		 * @param sa   computed suffix array
+		 * @param v    original string (can be s string of numbers) triple space required
+		 * @param sa   computed suffix array triple space required
+		 * [ optional
+		 * @param rk   rank array
+		 * @param h    height array
+		 * ]
 		 * @param n    length of v
 		 * @param m    charset size
 		 */
+			if(m>maxcharsetsize) return;
+			clear();
 			dc3(v,sa,n,m);
+		}
+		inline void operator()(ul* v,ul* sa,ul* rk,ul* h,ul n,ul m){
+			if(m>maxcharsetsize) return;
+			clear();
+			dc3(v,sa,n,m);
+			getRankHeight(n,v,sa,rk,h);
 		}
 	};
 }
+#endif
