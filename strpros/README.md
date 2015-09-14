@@ -10,6 +10,7 @@ Has `dscpy` functions defined.
 #SuffixArray
 
 > `namespace: SuffixArray`
+
 > `usage:     coded in comments; All implementations share one.`
 
 ##`_SA.h`
